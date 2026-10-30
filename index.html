@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar for Projects -->
+    <aside class="sidebar">
+      <h1>TodoApp</h1>
+      <div class="projects-header">
+        <h2>Projects</h2>
+      </div>
+      <ul id="project-list" class="project-list"></ul>
+      <form id="project-form" class="project-form">
+        <input type="text" id="project-name-input" placeholder="New project name..." required>
+        <button type="submit" class="btn primary-btn">+ Add</button>
+      </form>
+    </aside>
+
+    <!-- Main Area for Todos -->
+    <main class="main-content">
+      <header class="main-header">
+        <h2 id="current-project-title">Default</h2>
+        <button id="open-todo-modal-btn" class="btn primary-btn">+ New Todo</button>
+      </header>
+
+      <div id="todo-list" class="todo-list"></div>
+    </main>
+  </div>
+
+  <!-- Modal for Creating / Editing a Todo -->
+  <dialog id="todo-dialog" class="todo-dialog">
+    <form id="todo-form">
+      <h3 id="modal-title">Add Todo</h3>
+      <input type="hidden" id="edit-todo-id">
+
+      <div class="form-group">
+        <label for="todo-title">Title</label>
+        <input type="text" id="todo-title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="todo-desc">Description</label>
+        <textarea id="todo-desc" rows="2"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="todo-date">Due Date</label>
+          <input type="date" id="todo-date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="todo-priority">Priority</label>
+          <select id="todo-priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="todo-notes">Notes</label>
+        <textarea id="todo-notes" rows="2"></textarea>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" id="cancel-todo-btn" class="btn secondary-btn">Cancel</button>
+        <button type="submit" class="btn primary-btn">Save Todo</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
